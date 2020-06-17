@@ -1,0 +1,41 @@
+name: magic_hub
+description: A new Flutter project.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+  responsive_builder: ^0.1.5
+  getflutter: ^1.0.2
+  provider: ^4.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/
+
+
+
+  fonts:
+    - family: Bebas
+      fonts:
+        - asset: fonts/BebasNeue-Regular.ttf
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat-Regular.ttf
+    - family: ReemKufi
+      fonts:
+        - asset: fonts/ReemKufi-Regular.ttf
+
+
