@@ -12,29 +12,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.joaoaugustoperin.backend.domain.City;
-import com.joaoaugustoperin.backend.services.CityService;
+import com.joaoaugustoperin.backend.domain.Customer;
+import com.joaoaugustoperin.backend.services.CustomerService;
 
 @RestController
-@RequestMapping("/cidades")
-public class CityController {
+@RequestMapping("/clientes")
+public class CustomerController {
 
 	@Autowired
-	private CityService service;
-	
+	private CustomerService service;
+
 	@GetMapping
-	public List<City> listAll(){
+	public List<Customer> listAll(){
 		return service.listAll();
 	}
 	
+	@GetMapping("/{query}")
+	public List<Customer> findByName(@PathVariable("query") String query){
+		return service.findByName(query);
+	}
+	
 	@PostMapping
-	private City newCity(@RequestBody City c) {
+	private Customer newCustomer(@RequestBody Customer c) {
 		return service.save(c);
 	}
 	
 	@PutMapping("/{id}")
-	public City edit(@PathVariable("id") Integer id, @RequestBody City c) {
-		City edited = service.edit(c, id);
+	public Customer edit(@PathVariable("id") Integer id, @RequestBody Customer c) {
+		Customer edited = service.edit(c, id);
 		if (edited != null) {
 			return edited;
 		}
@@ -45,5 +50,4 @@ public class CityController {
 	public boolean delete(@PathVariable("id") Integer id) {
 		return service.delete(id);
 	}
-	
 }
